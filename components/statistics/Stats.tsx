@@ -12,6 +12,7 @@ async function fetchData(url: string) {
 
 export default function Stats() {
   const [pageViews, setPageViews] = useState<number>(0)
+  const [totalPageViews, setTotalPageViews] = useState<number>(0)
   const [totalArticles, setTotalArticles] = useState<number>(0)
   const [articleReactions, setArticleReactions] = useState<number>(0)
 
@@ -25,6 +26,7 @@ export default function Stats() {
         fetchData("/api/dev/totalArticles"),
         fetchData("/api/dev/reactions"),
         fetchData("/api/analytics/traffics"),
+        fetchData("/api/analytics/totalPageViews"),
       ])
 
       apiData[0].status === "fulfilled" &&
@@ -36,6 +38,9 @@ export default function Stats() {
       apiData[2].status === "fulfilled" &&
         typeof apiData[2].value === "number" &&
         setPageViews(apiData[2].value)
+      apiData[3].status === "fulfilled" &&
+        typeof apiData[3].value === "number" &&
+        setTotalPageViews(apiData[3].value)
     }
     fetchApiData()
   }, [])
@@ -44,16 +49,17 @@ export default function Stats() {
     <section className="h-full overflow-y-scroll myScroll">
       <Title name="statistics" />
       <ul className="grid grid-cols-1 gap-5 px-12 py-8 sm:grid-cols-2 md:grid-cols-3">
+        <Statistic title="Monthly Views" info={totalPageViews}/>
         <Statistic title="Weekly views" info={pageViews} />
         <Statistic
           title="articles"
           info={totalArticles}
-          externalLink="https://dev.to/arafat4693"
+          externalLink="https://dev.to/dipbd1"
         />
         <Statistic
           title="total reactions"
           info={articleReactions}
-          externalLink="https://dev.to/arafat4693"
+          externalLink="https://dev.to/dipbd1"
         />
         {statisticsData.map((s, i) => (
           <Statistic key={i} title={s.title} info={s.info} />

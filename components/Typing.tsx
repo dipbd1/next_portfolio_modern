@@ -25,7 +25,7 @@ export default function Typing() {
             .deleteAll(17)
 
             .typeString(
-              '<span style="color: #f59e0b; font-size: 14px; font-weight: 400;">Freelancer</span>'
+              '<span style="color: #f59e0b; font-size: 14px; font-weight: 400;">Solution Designer</span>'
             )
             .pauseFor(3500)
             .deleteAll(17)

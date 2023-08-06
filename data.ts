@@ -85,7 +85,7 @@ export const socialMedia: SocialMedia[] = [
     Icon: FaDev,
     label: "Dev",
     logoColor: "black",
-    mediaUrl: "https://www.dev.to/arafat4693",
+    mediaUrl: "https://www.dev.to/dipbd1",
     info: "Follow me and read my articles on Dev.to",
   },
   {
@@ -93,7 +93,7 @@ export const socialMedia: SocialMedia[] = [
     Icon: FaFacebookF,
     label: "Facebook",
     logoColor: "#3b5998",
-    mediaUrl: "https://www.facebook.com/md.sunny.58910049",
+    mediaUrl: "https://www.facebook.com/dipbd1",
     info: "Follow me on Facebook",
   },
   {
@@ -101,7 +101,7 @@ export const socialMedia: SocialMedia[] = [
     Icon: AiOutlineGithub,
     label: "Github",
     logoColor: "#171515",
-    mediaUrl: "https://www.github.com/arafat4693",
+    mediaUrl: "https://github.com/dipbd1",
     info: "Star my projects on Github",
   },
   {
@@ -109,7 +109,7 @@ export const socialMedia: SocialMedia[] = [
     Icon: AiFillLinkedin,
     label: "Linkedin",
     logoColor: "#0072b1",
-    mediaUrl: "https://www.linkedin.com/in/arafat-freelancer",
+    mediaUrl: "https://www.linkedin.com/in/dipbd1",
     info: "Let's connect on Linkedin",
   },
   {
@@ -117,17 +117,17 @@ export const socialMedia: SocialMedia[] = [
     Icon: FaDiscord,
     label: "Discord",
     logoColor: "#5865f2",
-    mediaUrl: "https://www.discord.com",
+    mediaUrl: "discordapp.com/users/222054653783703552",
     info: "Let's chat on Discord. My username - Tyrant#4185",
   },
-  {
-    id: 6,
-    Icon: SiFiverr,
-    label: "Fiverr",
-    logoColor: "#00b22d",
-    mediaUrl: "https://www.fiverr.com/sunnyislam990",
-    info: "Hire me on fiverr as freelancer",
-  },
+  // {
+  //   id: 6,
+  //   Icon: SiFiverr,
+  //   label: "Fiverr",
+  //   logoColor: "#00b22d",
+  //   mediaUrl: "https://www.fiverr.com/sunnyislam990",
+  //   info: "Hire me on fiverr as freelancer",
+  // },
 ]
 
 export const services: ServiceData[] = [
@@ -143,7 +143,7 @@ export const services: ServiceData[] = [
     title: "Back-end",
     Icon: SiNodedotjs,
     description:
-      "Back-end with a NoSQL DB and API written in a standard express router or tRPC.",
+      "Back-end with a NoSQL/SQL DB and API written in a standard express router or Nestjs.",
   },
   {
     id: 3,
@@ -152,13 +152,13 @@ export const services: ServiceData[] = [
     description:
       "Modern user Interface trends with a highly professional and unique design.",
   },
-  {
-    id: 4,
-    title: "Firebase",
-    Icon: SiFirebase,
-    description:
-      "Fully functional firebase app with authentication, firestore, storage, etc.",
-  },
+  // {
+  //   id: 4,
+  //   title: "Firebase",
+  //   Icon: SiFirebase,
+  //   description:
+  //     "Fully functional firebase app with authentication, firestore, storage, etc.",
+  // },
 ]
 
 export const clients: ClientData[] = [
@@ -177,11 +177,11 @@ export const clients: ClientData[] = [
     linkLocation: "https://www.upwork.com/",
     imgLocation: "/images/upwork.png",
   },
-  {
-    id: 4,
-    linkLocation: "https://www.envato.com/",
-    imgLocation: "/images/envato.png",
-  },
+  // {
+  //   id: 4,
+  //   linkLocation: "https://www.envato.com/",
+  //   imgLocation: "/images/envato.png",
+  // },
 ]
 
 export const quoteData: TestimonialData = {
@@ -200,10 +200,10 @@ export const statisticsData: StatisticsData[] = [
   },
   {
     title: "projects",
-    info: "70+",
+    info: "50+",
   },
   {
     title: "clients",
-    info: "40+",
+    info: "20+",
   },
 ]

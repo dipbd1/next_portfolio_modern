@@ -6,7 +6,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const response = await fetch(
-    "https://dev.to/api/articles?username=arafat4693&per_page=9000000000000000000"
+    "https://dev.to/api/articles?username=dipbd1&per_page=9000000000000000000"
   )
   const articles = await response.json()
   res.status(200).json(articles.length || 0)

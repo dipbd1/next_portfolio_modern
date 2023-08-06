@@ -37,5 +37,17 @@ export default {
         }
       }
     `,
+    publishComment: gql`
+    mutation PublishGuestBook($id: ID!) {
+      publishGuestBook(where: { id: $id }) {
+        name
+        id
+        comment
+        createdAt
+      }
+    }
+  `,
   },
+
+
 }

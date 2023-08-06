@@ -16,7 +16,7 @@ export default function DevBlogs() {
     isError,
     reFetch,
   } = useFetch<blog[]>(
-    `https://dev.to/api/articles?username=arafat4693&per_page=${postsPerPage}&page=${currentPage}`
+    `https://dev.to/api/articles?username=dipbd1&per_page=${postsPerPage}&page=${currentPage}`
   )
 
   if (isError) {
@@ -29,18 +29,18 @@ export default function DevBlogs() {
       <ul className="relative grid grid-cols-1 sm:grid-cols-2 sm:before:block before:hidden vCustomLine before:left-1/2 before:-translate-x-1/2">
         {blogsData === undefined || isLoading
           ? new Array(postsPerPage)
-              .fill(0)
-              .map((_, idx) => <BlogSkeleton key={idx} />)
+            .fill(0)
+            .map((_, idx) => <BlogSkeleton key={idx} />)
           : blogsData.map((b, idx) => <DevBlog key={idx} blog={b} />)}
       </ul>
 
       <div className="px-12 my-12">
-        <DevPagination
+        {blogsData && blogsData.length > 0 && <DevPagination
           postsPerPage={postsPerPage}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           onLoadMore={reFetch}
-        />
+        />}
       </div>
     </section>
   )

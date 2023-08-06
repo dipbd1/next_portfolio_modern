@@ -19,12 +19,27 @@ interface CreateComment {
   }
 }
 
+
 export default function GuestForm() {
   const { register, handleSubmit, reset } = useForm<Inputs>()
   const [isChecked, setIsChecked] = useState<boolean>(false)
   const [guestName, setGuestName] = useState<string>(
     localStorage.getItem("portfolio_guestName") || ""
   )
+
+  const [publishComment] = useMutation(guestBookOperations.Mutations.publishComment, {
+    onCompleted({ publishGuestBook }) {
+      toast.success(`Thanks for your comment`, {
+        duration: 5000,
+      })
+      reset({ comment: "" })
+      setIsChecked(false)
+      if (isChecked) {
+        localStorage.setItem("portfolio_guestName", publishGuestBook.name)
+        setGuestName(publishGuestBook.name)
+      }
+    },
+  })
 
   const [createComment, { loading }] = useMutation<CreateComment, Inputs>(
     guestBookOperations.Mutations.createComment,
@@ -53,15 +68,12 @@ export default function GuestForm() {
         })
       },
       onCompleted({ createGuestBook }) {
-        toast.success(`Thanks for your comment`, {
-          duration: 5000,
+        publishComment({
+          variables: {
+            id: createGuestBook.id,
+          },
         })
-        reset({ comment: "" })
-        setIsChecked(false)
-        if (isChecked) {
-          localStorage.setItem("portfolio_guestName", createGuestBook.name)
-          setGuestName(createGuestBook.name)
-        }
+
       },
       onError() {
         toast.error("Server error. Try again later")
@@ -103,17 +115,15 @@ export default function GuestForm() {
       <fieldset className="w-[22rem] h-20 bg-[#0e1422d9] flex justify-center items-center gap-3 text-gray-300 group mt-6 rounded-lg cursor-pointer">
         <button
           type="submit"
-          className={`${
-            loading ? "pointer-events-none" : "group-hover:text-main-orange"
-          } uppercase text-2xl font-semibold group-hover:mx-2 transition-all duration-300`}
+          className={`${loading ? "pointer-events-none" : "group-hover:text-main-orange"
+            } uppercase text-2xl font-semibold group-hover:mx-2 transition-all duration-300`}
         >
           {loading ? "submitting..." : "submit"}
         </button>
 
         <AiOutlineSwapRight
-          className={`text-4xl group-hover:text-main-orange transition-all duration-300 ${
-            loading ? "hidden" : "block"
-          }`}
+          className={`text-4xl group-hover:text-main-orange transition-all duration-300 ${loading ? "hidden" : "block"
+            }`}
         />
       </fieldset>
     </form>

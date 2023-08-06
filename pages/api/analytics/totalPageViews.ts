@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next"
 import { BetaAnalyticsDataClient } from "@google-analytics/data"
 
@@ -21,7 +20,7 @@ export default async function handler(
     property: `properties/${propertyId}`,
     dateRanges: [
       {
-        startDate: `30daysAgo`, //👈  e.g. "7daysAgo" or "30daysAgo"
+        startDate: `2023-08-06`, //👈  e.g. "7daysAgo" or "30daysAgo"
         endDate: "today",
       },
     ],
@@ -32,7 +31,7 @@ export default async function handler(
     ],
     metrics: [
       {
-        name: "activeUsers", // it returns the active users
+        name: "screenPageViews", // it returns the active users
       },
     ],
   })

@@ -99,7 +99,7 @@ const Home: NextPage<Props> = ({ profileData }) => {
                         exitState: {
                           clipPath:
                             clipPaths[
-                              Math.floor(Math.random() * clipPaths.length)
+                            Math.floor(Math.random() * clipPaths.length)
                             ],
                         },
                       }}
