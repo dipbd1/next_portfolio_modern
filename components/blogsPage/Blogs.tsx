@@ -36,7 +36,6 @@ export default function Blogs() {
   }
 
   useEffect(() => {
-    console.log("blogsData", blogsData)
     if (blogsData === undefined) return
     setFilteredBlogs(blogsData)
   }, [blogsData])
