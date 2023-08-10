@@ -36,6 +36,7 @@ export default function Blogs() {
   }
 
   useEffect(() => {
+    console.log("blogsData", blogsData)
     if (blogsData === undefined) return
     setFilteredBlogs(blogsData)
   }, [blogsData])
@@ -46,10 +47,10 @@ export default function Blogs() {
 
       <ul className="relative grid grid-cols-1 sm:grid-cols-2 sm:before:block before:hidden vCustomLine before:left-1/2 before:-translate-x-1/2">
         {filteredBlogs === undefined ||
-        networkStatus === NetworkStatus.fetchMore
+          networkStatus === NetworkStatus.fetchMore
           ? new Array(postsPerPage)
-              .fill(0)
-              .map((_, idx) => <BlogSkeleton key={idx} />)
+            .fill(0)
+            .map((_, idx) => <BlogSkeleton key={idx} />)
           : filteredBlogs.blogs.map((b, idx) => <Blog key={idx} blog={b} />)}
       </ul>
 
