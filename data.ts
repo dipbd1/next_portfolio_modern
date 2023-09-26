@@ -118,8 +118,8 @@ export const socialMedia: SocialMedia[] = [
     Icon: FaDiscord,
     label: "Discord",
     logoColor: "#5865f2",
-    mediaUrl: "discordapp.com/users/222054653783703552",
-    info: "Let's chat on Discord. My username - Tyrant#4185",
+    mediaUrl: "https://discordapp.com/users/222054653783703552",
+    info: "Let's chat on Discord. My username - dipbd1",
   },
   // {
   //   id: 6,
