@@ -18,13 +18,13 @@ export default function MyService({ name, Icon, border, desc, last }: Props) {
           : `sm:before:hidden ${last ? "before:hidden" : "before:block"}`
       }`}
     >
-      <div className="py-10 px-12">
+      <div className="py-10 px-12 prose">
         <MyIcon Icon={Icon} />
 
-        <h2 className="capitalize text-[1.6rem] text-gray-300 font-semibold pb-2 pt-4">
+        <h2 className="capitalize text-[1.6rem] pb-2 pt-4">
           {name}
         </h2>
-        <p className="text-2xl text-gray-500 leading-[1.8] tracking-wide">
+        <p className="text-2xl leading-[1.8] tracking-wide">
           {desc}
         </p>
       </div>

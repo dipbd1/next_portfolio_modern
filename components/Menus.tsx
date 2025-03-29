@@ -18,7 +18,7 @@ export default function Menus({ showSideMenu }: Props) {
       {/* humburbar menu */}
       <div
         onClick={() => showSideMenu(true)}
-        className="h-[7.2rem] group rounded-lg bg-gray-900 flex items-center justify-center cursor-pointer"
+        className="h-[7.2rem] group rounded-lg flex items-center justify-center cursor-pointer"
       >
         <div className="w-11">
           <div className="w-9/12 h-[0.24rem] bg-gray-300 transition-width duration-300 group-hover:w-full group-hover:bg-main-orange"></div>
@@ -30,7 +30,7 @@ export default function Menus({ showSideMenu }: Props) {
       {/* guest book btn */}
       <div
         onClick={() => currentMenu(7)}
-        className="h-[7.2rem] rounded-lg bg-gray-900 flex items-center justify-center cursor-pointer group"
+        className="h-[7.2rem] rounded-lg flex items-center justify-center cursor-pointer group"
       >
         <div className="relative">
           <BsBookHalf className="text-4xl text-gray-300 transition-all duration-300 group-hover:text-main-orange" />

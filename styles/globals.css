@@ -120,7 +120,7 @@ html {
   );
 }
 
-.profile::after {
+/* .profile::after {
   content: "";
   position: absolute;
   left: -1.5rem;
@@ -134,7 +134,7 @@ html {
     rgba(133, 87, 2, 0.4) 0%,
     rgba(246, 184, 70, 0.01) 100%
   );
-}
+} */
 
 .overlay {
   background: linear-gradient(
@@ -180,7 +180,7 @@ html {
 }
 
 .profilePic::before {
-  content: "";
+  /* content: "";
   position: absolute;
   top: 10px;
   left: -10px;
@@ -191,7 +191,7 @@ html {
     135deg,
     rgba(246, 184, 70, 0.4) 0%,
     rgba(246, 184, 70, 0.01) 100%
-  );
+  ); */
 }
 
 .quote::before,
@@ -262,6 +262,33 @@ html {
 
 .loader span:last-child {
   animation: bubbleReverse 0.9s linear infinite alternate forwards;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #1542a5 #03164700; /* Thumb color and track color */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Webkit-based browsers (Chrome, Edge, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #0f172a; /* Track color (main-dark) */
+  border-radius: 4px; /* Rounded corners for the track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #2563eb; /* Thumb color (main-accent) */
+  border-radius: 4px; /* Rounded corners for the thumb */
+  transition: background-color 0.3s ease; /* Smooth animation */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #1e40af; /* Darker blue on hover (main-hover) */
 }
 
 @keyframes bubble {

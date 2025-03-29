@@ -2,6 +2,7 @@ import Particles from "react-tsparticles"
 import { loadFull } from "tsparticles"
 import { useCallback } from "react"
 import type { Engine, Container } from "tsparticles-engine"
+import tailwindconfig from "../tailwind.config"
 
 const Background = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -23,7 +24,8 @@ const Background = () => {
       options={{
         background: {
           color: {
-            value: "#0b0f17",
+            // value: "#FFC3A0",
+            value: tailwindconfig.theme.extend.colors["main-dark"],
           },
         },
         fpsLimit: 160,
@@ -40,7 +42,7 @@ const Background = () => {
           },
           modes: {
             push: {
-              quantity: 4,
+              quantity: 1,
             },
             repulse: {
               distance: 200,
@@ -50,10 +52,10 @@ const Background = () => {
         },
         particles: {
           color: {
-            value: "#f59e0b",
+            value: tailwindconfig.theme.extend.colors["main-orange"],
           },
           links: {
-            color: "#f59e0b",
+            color: tailwindconfig.theme.extend.colors["main-hover"],
             distance: 150,
             enable: true,
             opacity: 0.5,
@@ -77,7 +79,7 @@ const Background = () => {
               enable: true,
               area: 800,
             },
-            value: 20,
+            value: 200,
           },
           opacity: {
             value: 0.5,

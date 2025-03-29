@@ -72,15 +72,15 @@ const Home: NextPage<Props> = ({ profileData }) => {
         <Menus showSideMenu={showMenu} />
         <ProfileCard profileData={profileData} />
 
-        <div className="xl:w-[70.5rem] lg:w-[66rem] w-full h-full lg:py-6">
-          <div className="relative bg-gray-900 h-full before:content-[''] before:absolute before:top-0 before:left-0 before:right-[0.7rem] before:h-6 before:bg-gray-900 before:z-30 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-[0.7rem] after:h-6 after:bg-gray-900 after:z-30">
+        <div className="xl:w-[70.5rem] lg:w-[66rem] w-full h-full">
+          <div className="relative h-full shadow-light-glow">
             <AnimatePresence mode="wait">
               {menus.map(
                 (m) =>
                   menuId === m.id && (
                     <motion.div
                       key={m.id}
-                      className="w-full h-full max-h-full bg-gray-900"
+                      className="w-full h-full max-h-full custom-scrollbar"
                       initial="initialState"
                       animate="animateState"
                       exit="exitState"

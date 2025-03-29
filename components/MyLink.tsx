@@ -5,9 +5,10 @@ interface Props {
   border?: boolean
   Icon: IconType
   url: string
+  className?: string
 }
 
-export default function MyLink({ name, Icon, border, url }: Props) {
+export default function MyLink({ name, Icon, border, url, className  }: Props) {
   return (
     <a
       rel="noreferrer"
@@ -15,7 +16,7 @@ export default function MyLink({ name, Icon, border, url }: Props) {
       href={url}
       className={`w-1/2 ${
         border ? "vCustomLine relative before:right-0" : ""
-      } h-full flex justify-center items-center gap-4 text-xl text-gray-300 font-semibold uppercase cursor-pointer group`}
+      } h-full flex justify-center items-center gap-4 text-xl text-gray-300 font-semibold uppercase cursor-pointer group ${className}`}
     >
       <span className="group-hover:mx-2 group-hover:text-main-orange transition-all duration-300">
         {name}
