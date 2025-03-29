@@ -8,7 +8,7 @@ const propertyId = process.env.NEXT_PUBLIC_GA_PROPERTY_ID
 const analyticsDataClient = new BetaAnalyticsDataClient({
   credentials: {
     client_email: process.env.NEXT_PUBLIC_GA_CLIENT_EMAIL,
-    private_key: process.env.NEXT_PUBLIC_GA_PRIVATE_KEY?.replace(/\\n/g, '\n')
+    private_key: process.env.GA_PRIVATE_KEY?.replace(/\\n/g, '\n')
   },
 })
 
