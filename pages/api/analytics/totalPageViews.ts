@@ -19,7 +19,7 @@ export default async function handler(
     property: `properties/${propertyId}`,
     dateRanges: [
       {
-        startDate: `2023-08-06`, //👈  e.g. "7daysAgo" or "30daysAgo"
+        startDate: `30daysAgo`, //👈  e.g. "7daysAgo" or "30daysAgo"
         endDate: "today",
       },
     ],
