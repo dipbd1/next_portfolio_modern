@@ -197,7 +197,7 @@ export const quoteData: TestimonialData = {
 export const statisticsData: StatisticsData[] = [
   {
     title: "stack",
-    info: "MERN or T3",
+    info: "No Stack 😔",
   },
   {
     title: "projects",
