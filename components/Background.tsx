@@ -36,7 +36,7 @@ const Background = () => {
             },
             onHover: {
               enable: true,
-              mode: "repulse",
+              mode: ["repulse"],
             },
             resize: true,
           },
@@ -45,7 +45,7 @@ const Background = () => {
               quantity: 1,
             },
             repulse: {
-              distance: 200,
+              distance: 120,
               duration: 0.4,
             },
           },
@@ -88,7 +88,7 @@ const Background = () => {
             type: "circle",
           },
           size: {
-            value: { min: 1, max: 2 },
+            value: { min: 1, max: 4 },
           },
         },
         detectRetina: true,
