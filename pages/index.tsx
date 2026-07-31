@@ -1,17 +1,20 @@
 import type { NextPage } from "next"
 import Head from "next/head"
 import Background from "../components/Background"
+import Background2 from "../components/Background2"
 import LoaderPage from "../components/LoaderPage"
 import Menus from "../components/Menus"
 import ProfileCard from "../components/ProfileCard"
-import "react-loading-skeleton/dist/skeleton.css"
+// @ts-ignore
+// import "react-loading-skeleton/dist/skeleton.css"
 import client, { currentMenu, currentWork, showMenu } from "../apollo-client"
 import profileOperations from "../graphqlOperations/profile"
 import { ProfileData } from "../types"
 import { useReactiveVar } from "@apollo/client"
 import { menus } from "../data"
-import { AnimatePresence, motion } from "framer-motion"
-import { useEffect, useState } from "react"
+import { AnimatePresence, motion, useAnimationControls, useReducedMotion } from "framer-motion"
+import { CSSProperties, useEffect, useState } from "react"
+import { onImpact } from "../lib/snooker/impactBus"
 import { Toaster } from "react-hot-toast"
 import WorkLb from "../components/worksPage/WorkLb"
 import SideMenuLb from "../components/SideMenuLb"
@@ -31,6 +34,8 @@ const Home: NextPage<Props> = ({ profileData }) => {
   const workId = useReactiveVar(currentWork)
   const sideMenu = useReactiveVar(showMenu)
   const [loaderPage, setLoaderPage] = useState<boolean>(true)
+  const tableControls = useAnimationControls()
+  const reduceMotion = useReducedMotion()
 
   useEffect(() => {
     const timeoutId = setTimeout(() => setLoaderPage(false), 3500)
@@ -38,6 +43,20 @@ const Home: NextPage<Props> = ({ profileData }) => {
       clearTimeout(timeoutId)
     }
   }, [setLoaderPage])
+
+  useEffect(() => {
+    if (reduceMotion) return
+    return onImpact(({ color, strength }) => {
+      const d = 3 + strength * 9
+      tableControls.start({
+        x: [0, -d, d * 0.7, -d * 0.4, 0],
+        y: [0, d * 0.5, -d * 0.3, 0, 0],
+        // @ts-ignore css variable keyframes
+        "--glow-color": [color, color, "rgba(255,255,255,0.2)"],
+        transition: { duration: 0.5, ease: "easeOut" },
+      })
+    })
+  }, [tableControls, reduceMotion])
 
   return (
     <main className="relative flex items-center justify-center min-h-screen home">
@@ -49,7 +68,9 @@ const Home: NextPage<Props> = ({ profileData }) => {
 
       {loaderPage && <LoaderPage />}
 
-      <Background />
+      {/* <Background /> */}
+      {/* for few days snooker will be the background */}
+      <Background2 />
 
       <AnimatePresence>
         {workId && <WorkLb workId={workId} reactiveVar={currentWork} />}
@@ -68,7 +89,12 @@ const Home: NextPage<Props> = ({ profileData }) => {
         <BiMenu className="w-10 h-10" />
       </button>
 
-      <section className="z-10 w-full h-full lg:w-[115rem] xl:w-[126.8rem] lg:h-[62.5rem] lg:flex p-10 sm:p-24 lg:p-0">
+      <motion.section
+        data-table-obstacle
+        animate={tableControls}
+        style={{ "--glow-color": "rgba(255,255,255,0.2)" } as CSSProperties}
+        className="z-10 w-full h-full lg:w-[115rem] xl:w-[126.8rem] lg:h-[62.5rem] lg:flex p-10 sm:p-24 lg:p-0"
+      >
         <Menus showSideMenu={showMenu} />
         <ProfileCard profileData={profileData} />
 
@@ -111,7 +137,7 @@ const Home: NextPage<Props> = ({ profileData }) => {
             </AnimatePresence>
           </div>
         </div>
-      </section>
+      </motion.section>
       <Toaster />
     </main>
   )
