@@ -73,7 +73,7 @@ const Home: NextPage<Props> = ({ profileData }) => {
         <ProfileCard profileData={profileData} />
 
         <div className="xl:w-[70.5rem] lg:w-[66rem] w-full h-full">
-          <div className="relative h-full shadow-light-glow">
+          <div className="relative h-full overflow-hidden rounded-lg bg-main-dark/40 backdrop-blur-sm shadow-light-glow">
             <AnimatePresence mode="wait">
               {menus.map(
                 (m) =>
