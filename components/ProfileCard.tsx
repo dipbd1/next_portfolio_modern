@@ -53,7 +53,7 @@ interface Props {
 
 export default function ProfileCard({ profileData }: Props) {
   return (
-    <div className="profile h-full lg:w-[42rem] xl:w-[48rem] rounded-lg relative lg:block hidden shadow-light-glow">
+    <div className="profile h-full lg:w-[42rem] xl:w-[48rem] rounded-lg relative lg:block hidden">
       <div className="flex flex-col justify-between h-full relative z-40 w-full">
         {/* Top Content */}
         <div>

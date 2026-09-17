@@ -14,7 +14,7 @@ export default function Menus({ showSideMenu }: Props) {
   const menuId = useReactiveVar(currentMenu)
 
   return (
-    <header className="xl:w-[7.2rem] lg:w-[7rem] py-6 h-full mr-4 hidden lg:flex flex-col justify-between shadow-light-glow rounded-lg">
+    <header className="xl:w-[7.2rem] lg:w-[7rem] py-6 h-full mr-4 hidden lg:flex flex-col justify-between">
       {/* humburbar menu */}
       <div
         onClick={() => showSideMenu(true)}
