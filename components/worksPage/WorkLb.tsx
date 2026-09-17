@@ -51,16 +51,18 @@ export default function WorkLb({ workId, reactiveVar }: Props) {
           <Loader />
         ) : (
           <div className="w-full h-full max-h-full overflow-y-scroll myScroll">
-            <div className="w-full relative h-[45rem]">
+            <div className="w-full relative overflow-hidden bg-[#0b0d10] aspect-video">
               <AiFillCloseCircle
                 onClick={() => reactiveVar(null)}
                 className="absolute z-10 text-5xl cursor-pointer top-6 right-8 text-main-orange"
               />
               <Image
                 src={workData.work.images[0].url}
-                alt="project description"
+                alt={workData.work.title}
                 layout="fill"
                 objectFit="cover"
+                objectPosition="center"
+                quality={95}
               />
             </div>
             <section className="py-14 px-14">
