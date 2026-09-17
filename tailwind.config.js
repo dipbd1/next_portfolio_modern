@@ -143,7 +143,7 @@ module.exports = {
         },
       },
       boxShadow: {
-        'light-glow': '0 0 15px 2px var(--glow-color, rgba(255, 255, 255, 0.2))',
+        'light-glow': '0 0 15px 2px rgba(255, 255, 255, 0.2)',
       },
     },
   },
