@@ -14,6 +14,11 @@
   --wa: 38 92% 50%;
 }
 
+html.smooth-cursor-on,
+html.smooth-cursor-on * {
+  cursor: none !important;
+}
+
 * {
   font-family: "Poppins", sans-serif;
   margin: 0;

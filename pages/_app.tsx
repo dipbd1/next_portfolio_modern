@@ -4,6 +4,8 @@ import type { AppProps } from "next/app"
 import { ApolloProvider } from "@apollo/client"
 import client from "../apollo-client"
 import Script from "next/script"
+import { SmoothCursor } from "../components/SmoothCursor"
+import { featureFlags } from "../lib/featureFlags"
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -21,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         `}
       </Script>
 
+      {featureFlags.smoothCursor && <SmoothCursor />}
       <Component {...pageProps} />
     </ApolloProvider>
   )
