@@ -7,6 +7,7 @@ import blogOperations from "../../graphqlOperations/blog"
 import { BlogsQuery } from "../../types"
 import { useEffect, useState } from "react"
 import { NetworkStatus } from "@apollo/client"
+import SmoothSection from "../SmoothSection"
 
 interface BlogsVariables {
   skip: number
@@ -41,7 +42,7 @@ export default function Blogs() {
   }, [blogsData])
 
   return (
-    <section className="h-full overflow-y-scroll myScroll">
+    <SmoothSection>
       <Title name="blogs" />
 
       <ul className="relative grid grid-cols-1 sm:grid-cols-2 sm:before:block before:hidden vCustomLine before:left-1/2 before:-translate-x-1/2">
@@ -63,6 +64,6 @@ export default function Blogs() {
           onLoadMore={fetchMore}
         />
       </div>
-    </section>
+    </SmoothSection>
   )
 }

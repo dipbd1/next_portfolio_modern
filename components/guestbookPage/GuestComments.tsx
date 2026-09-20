@@ -61,6 +61,7 @@ export default function GuestComments() {
         </div>
       }
       scrollableTarget="guestComments"
+      style={{ overflow: "visible" }}
     >
       <motion.ul className="relative mt-12 customLine before:top-0 borderLeft">
         {data.guestBooksConnection.edges.map((d) => (

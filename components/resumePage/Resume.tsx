@@ -3,10 +3,11 @@ import Title from "../Title"
 import MyResume from "./MyResume"
 import Skills from "./Skills"
 import { quoteData } from "../../data"
+import SmoothSection from "../SmoothSection"
 
 export default function Resume() {
   return (
-    <section className="h-full overflow-y-scroll myScroll">
+    <SmoothSection>
       <Title name="resume" />
       <MyResume />
 
@@ -15,6 +16,6 @@ export default function Resume() {
 
       <Title name="quote" />
       <Testimonial testimonial={quoteData} />
-    </section>
+    </SmoothSection>
   )
 }

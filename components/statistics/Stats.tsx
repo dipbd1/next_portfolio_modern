@@ -3,6 +3,7 @@ import { socialMedia, statisticsData } from "../../data"
 import Title from "../Title"
 import LinkListItem from "./LinkListItem"
 import Statistic from "./Statistic"
+import SmoothSection from "../SmoothSection"
 
 async function fetchData(url: string) {
   const response = await fetch(url)
@@ -47,7 +48,7 @@ export default function Stats() {
   }, [])
 
   return (
-    <section className="h-full overflow-y-scroll myScroll">
+    <SmoothSection>
       <Title name="statistics" />
       <ul className="grid grid-cols-1 gap-5 px-12 py-8 sm:grid-cols-2 md:grid-cols-3">
         <Statistic title="Monthly Views" info={totalPageViews}/>
@@ -73,6 +74,6 @@ export default function Stats() {
           <LinkListItem key={sm.id} socialMedia={sm} />
         ))}
       </ul>
-    </section>
+    </SmoothSection>
   )
 }

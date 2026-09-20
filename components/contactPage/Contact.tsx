@@ -1,15 +1,16 @@
 import Title from "../Title"
 import ContactForm from "./ContactForm"
 import Location from "./Location"
+import SmoothSection from "../SmoothSection"
 
 export default function Contact() {
   return (
-    <section className="h-full overflow-y-scroll myScroll">
+    <SmoothSection>
       <Title name="get in touch" />
       <Location />
 
       <Title name="contact form" />
       <ContactForm />
-    </section>
+    </SmoothSection>
   )
 }

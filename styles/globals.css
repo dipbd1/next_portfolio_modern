@@ -264,11 +264,34 @@ html {
   animation: bubbleReverse 0.9s linear infinite alternate forwards;
 }
 
+.smooth-section {
+  height: 100%;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+.smooth-section::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+
+.smooth-section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.smooth-section::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 0.6rem;
+}
+
 /* Custom Scrollbar */
 .custom-scrollbar {
   scrollbar-width: thin; /* For Firefox */
   scrollbar-color: #1542a5 #03164700; /* Thumb color and track color */
-  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 /* Webkit-based browsers (Chrome, Edge, Safari) */

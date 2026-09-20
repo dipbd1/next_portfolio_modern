@@ -5,10 +5,11 @@ import MyServices from "./MyServices"
 import Prices from "./Prices"
 import Testimonials from "./Testimonials"
 import Title from "../Title"
+import SmoothSection from "../SmoothSection"
 
 export default function About() {
   return (
-    <section className="h-full overflow-y-scroll myScroll">
+    <SmoothSection>
       <Title name="about me" />
       <AboutMe />
 
@@ -26,6 +27,6 @@ export default function About() {
 
       <Title name="fun facts" />
       <Facts />
-    </section>
+    </SmoothSection>
   )
 }

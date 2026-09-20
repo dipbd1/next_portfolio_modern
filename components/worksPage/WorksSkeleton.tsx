@@ -1,9 +1,10 @@
 import Title from "../Title"
 import WorkSkeleton from "./WorkSkeleton"
+import SmoothSection from "../SmoothSection"
 
 export default function WorksSkeleton() {
   return (
-    <div className="bg-gray-900 w-full max-h-full h-full overflow-y-scroll myScroll">
+    <SmoothSection className="bg-gray-900">
       <Title name="works" />
       <ul className="grid grid-cols-2">
         <li className="relative vCustomLine py-10 px-12">
@@ -18,6 +19,6 @@ export default function WorksSkeleton() {
           <WorkSkeleton />
         </li>
       </ul>
-    </div>
+    </SmoothSection>
   )
 }

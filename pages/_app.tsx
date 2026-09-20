@@ -1,4 +1,5 @@
 import "../styles/globals.css"
+import "lenis/dist/lenis.css"
 import type { AppProps } from "next/app"
 import { ApolloProvider } from "@apollo/client"
 import client from "../apollo-client"

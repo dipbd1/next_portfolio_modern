@@ -25,7 +25,7 @@ export default function Testimonials() {
   if (loading || data === undefined) return <TestimonialSkeleton />
 
   return (
-    <div className="testimonials">
+    <div className="testimonials" data-lenis-prevent>
       <Swiper pagination={true} modules={[Pagination]}>
         {data.testimonials.map((t) => (
           <SwiperSlide key={t.id}>

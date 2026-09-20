@@ -10,6 +10,7 @@ import { useReactiveVar } from "@apollo/client"
 import InfiniteScroll from "react-infinite-scroll-component"
 import Loader from "../Loader"
 import { motion, AnimatePresence } from "framer-motion"
+import SmoothSection from "../SmoothSection"
 
 interface WorksQuery {
   worksConnection: WorksConnectionData
@@ -46,10 +47,7 @@ export default function Works() {
   if (worksData === undefined) return <WorksSkeleton />
 
   return (
-    <div
-      id="scrollableDiv"
-      className="lg:h-full h-[95rem] overflow-y-scroll myScroll"
-    >
+    <SmoothSection id="scrollableDiv">
       <Title name="works" currentMenu={currentTab} />
 
       <InfiniteScroll
@@ -66,6 +64,7 @@ export default function Works() {
           </div>
         }
         scrollableTarget="scrollableDiv"
+        style={{ overflow: "visible" }}
       >
         <motion.ul
           layout="position"
@@ -84,6 +83,6 @@ export default function Works() {
           </AnimatePresence>
         </motion.ul>
       </InfiniteScroll>
-    </div>
+    </SmoothSection>
   )
 }

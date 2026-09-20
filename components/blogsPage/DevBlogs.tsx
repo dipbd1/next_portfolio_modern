@@ -5,6 +5,7 @@ import Title from "../Title"
 import BlogSkeleton from "./BlogSkeleton"
 import DevBlog from "./DevBlog"
 import DevPagination from "./DevPagination"
+import SmoothSection from "../SmoothSection"
 
 const postsPerPage = 10
 
@@ -24,7 +25,7 @@ export default function DevBlogs() {
   }
 
   return (
-    <section className="h-full overflow-y-scroll myScroll">
+    <SmoothSection>
       <Title name="blogs" />
       <ul className="relative grid grid-cols-1 sm:grid-cols-2 sm:before:block before:hidden vCustomLine before:left-1/2 before:-translate-x-1/2">
         {blogsData === undefined || isLoading
@@ -42,6 +43,6 @@ export default function DevBlogs() {
           onLoadMore={reFetch}
         />}
       </div>
-    </section>
+    </SmoothSection>
   )
 }
