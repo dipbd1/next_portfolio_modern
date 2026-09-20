@@ -29,12 +29,22 @@ html.smooth-cursor-on * {
   text-decoration: none;
 }
 
+html,
+body,
+#__next {
+  background-color: #0f172a;
+}
+
 html {
   font-size: 50%;
   overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-padding-top: 6.5rem;
-  /* background-color: #f5b038; */
+  color-scheme: dark;
+}
+
+html.is-booting body {
+  overflow: hidden;
 }
 
 /* width */
@@ -346,5 +356,102 @@ html {
 @media (min-width: 1250px) {
   html {
     font-size: 62.5%;
+  }
+}
+
+/* Magic UI Warp Background — ported to Tailwind 3 / custom properties */
+.warp-root {
+  isolation: isolate;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.warp-scene {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  clip-path: inset(0);
+  perspective: var(--perspective);
+  transform-style: preserve-3d;
+  container-type: size;
+  contain: paint;
+}
+
+.warp-side {
+  position: absolute;
+  transform-style: preserve-3d;
+  background-image: linear-gradient(
+      var(--grid-color) 0 1px,
+      transparent 1px var(--beam-size)
+    ),
+    linear-gradient(
+      90deg,
+      var(--grid-color) 0 1px,
+      transparent 1px var(--beam-size)
+    );
+  background-size: var(--beam-size) var(--beam-size);
+  background-position: 50% -0.5px, 50% 50%;
+  container-type: size;
+}
+
+.warp-side--top {
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vmax;
+  width: 100cqi;
+  height: 100cqmax;
+  transform-origin: 50% 0%;
+  transform: rotateX(-90deg);
+}
+
+.warp-side--bottom {
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100vmax;
+  width: 100cqi;
+  height: 100cqmax;
+  transform-origin: 50% 0%;
+  transform: rotateX(-90deg);
+}
+
+.warp-side--left {
+  top: 0;
+  left: 0;
+  width: 100vh;
+  height: 100vmax;
+  width: 100cqh;
+  height: 100cqmax;
+  transform-origin: 0% 0%;
+  transform: rotate(90deg) rotateX(-90deg);
+}
+
+.warp-side--right {
+  top: 0;
+  right: 0;
+  width: 100vh;
+  height: 100vmax;
+  width: 100cqh;
+  height: 100cqmax;
+  transform-origin: 100% 0%;
+  transform: rotate(-90deg) rotateX(-90deg);
+}
+
+.warp-beam {
+  position: absolute;
+  top: 0;
+  left: var(--x);
+  width: var(--width);
+  aspect-ratio: 1 / var(--aspect-ratio);
+  background: var(--background);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .warp-beam {
+    display: none;
   }
 }

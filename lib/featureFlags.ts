@@ -12,4 +12,9 @@ export const featureFlags = {
    * Set NEXT_PUBLIC_SMOOTH_CURSOR=false in .env to restore the native cursor.
    */
   smoothCursor: readBoolFlag(process.env.NEXT_PUBLIC_SMOOTH_CURSOR, true),
+  /**
+   * Magic UI warp splash. Default is on.
+   * Set NEXT_PUBLIC_WARP_LOADER=false in .env to restore the classic orange bubble.
+   */
+  warpLoader: readBoolFlag(process.env.NEXT_PUBLIC_WARP_LOADER, true),
 } as const

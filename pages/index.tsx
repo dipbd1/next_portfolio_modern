@@ -11,7 +11,6 @@ import { ProfileData } from "../types"
 import { useReactiveVar } from "@apollo/client"
 import { menus } from "../data"
 import { AnimatePresence, motion } from "framer-motion"
-import { useEffect, useState } from "react"
 import { Toaster } from "react-hot-toast"
 import WorkLb from "../components/worksPage/WorkLb"
 import SideMenuLb from "../components/SideMenuLb"
@@ -30,14 +29,6 @@ const Home: NextPage<Props> = ({ profileData }) => {
   const menuId = useReactiveVar(currentMenu)
   const workId = useReactiveVar(currentWork)
   const sideMenu = useReactiveVar(showMenu)
-  const [loaderPage, setLoaderPage] = useState<boolean>(true)
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => setLoaderPage(false), 3500)
-    return () => {
-      clearTimeout(timeoutId)
-    }
-  }, [setLoaderPage])
 
   return (
     <main className="relative flex items-center justify-center min-h-screen home">
@@ -47,7 +38,7 @@ const Home: NextPage<Props> = ({ profileData }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {loaderPage && <LoaderPage />}
+      <LoaderPage />
 
       <Background />
 
